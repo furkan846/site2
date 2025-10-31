@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eşşek Eymen - Güncellendi</title>
+    <style>
+        /* CSS kodlarımız */
+        body {
+            /* Bölümlü bir yapı için flex ve center kodlarını body'den kaldırdık.
+             Artık sayfa normal akışında (yukarıdan aşağıya) görünecek.
+            */
+            margin: 0;
+            background-color: #000000; /* Siyah arka planı koruduk */
+            color: white; /* Arka plan siyah olduğu için genel yazı rengini beyaz yaptık */
+            font-family: sans-serif;
+        }
+
+        /* 1. BÖLME: Üst Başlık */
+        header {
+            background-color: #1a1a1a; /* Arka plandan hafif açık bir ton */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 2. BÖLME: Navigasyon / Buton Alanı */
+        nav {
+            background-color: #222;
+            padding: 15px;
+            text-align: center; /* Butonları kendi alanı içinde ortalar */
+        }
+
+        /* 3. BÖLME: Ana İçerik */
+        main {
+            padding: 20px;
+            min-height: 400px; /* Sayfa içeriği az bile olsa uzun dursun */
+        }
+
+        /* SİZİN BUTON STİLİNİZİ KULLANIYORUZ */
+        .orta-buton {
+            /* Butonumuzun görünümü için stiller */
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #007BFF; /* Mavi bir renk */
+            text-decoration: none;   /* Linkin altındaki çizgiyi kaldır */
+            border-radius: 5px;       /* Kenarları yuvarlaklaştır */
+            font-family: sans-serif;  /* Daha modern bir yazı tipi */
+            font-weight: bold;
+            margin: 5px; /* Yan yana butonlar için biraz boşluk */
+            transition: background-color 0.3s;
+        }
+
+        /* Sizin stilinize küçük bir ekleme: Üzerine gelince renk değişimi */
+        .orta-buton:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Gizli Bilgiler</h1>
+    </header>
+
+    <nav>
+        <a href="hakkımda.html" target="_blank" class="orta-buton">Eymen Hakkında Bilgiler</a>
+        
+        <a href="Berkay.html" target="_blank" class="orta-buton">Berkay Hakkında Bilgiler</a>
+        <a href="A.html" target="_blank" class="orta-buton">B</a>
+    </nav>
+
+    <main>
+        <h2>Ana Sayfa</h2>
+        <p>Burası ana içerik bölümüdür. Yukarıdaki menüden istediğiniz sayfaya gidebilirsiniz.</p>
+    </main>
+
+</body>
+</html>
