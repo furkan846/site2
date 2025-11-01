@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eşşek Eymen - Güncellendi</title>
     <style>
+
+        /* === BAŞLANGIÇ: Bildirim Kutusu Stilleri === */
+#bildirim-kutusu {
+    position: fixed;         /* Ekranda sabit kalır */
+    bottom: 0;               /* Ekranın en altında */
+    left: 0;
+    width: 100%;             /* Tüm ekran genişliği */
+    background-color: #222;  /* Koyu arkaplan */
+    color: white;            /* Beyaz yazı */
+    padding: 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.5); /* Üst gölge */
+    z-index: 1000;           /* Her şeyin üstünde görünür */
+    display: none;           /* Başlangıçta gizli (JS ile gösterilecek) */
+    box-sizing: border-box;  /* Padding genişliği etkilemesin */
+    text-align: center;
+}
+
+#bildirim-kutusu p {
+    margin: 0 0 15px 0; /* Yazı ile buton arası boşluk */
+    font-size: 16px;
+}
+
+#kapat-butonu {
+    background-color: #007bff; /* Mavi bir buton */
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer; /* Üzerine gelince el işareti çıkar */
+    font-size: 16px;
+}
+
+#kapat-butonu:hover {
+    background-color: #0056b3; /* Hover rengi */
+}
+/* === BİTİŞ: Bildirim Kutusu Stilleri === */
         /* CSS kodlarımız */
         body {
             /* Bölümlü bir yapı için flex ve center kodlarını body'den kaldırdık.
@@ -60,6 +96,11 @@
     </style>
 </head>
 <body>
+    
+    <div id="bildirim-kutusu">
+    <p>Buraya istediğiniz özel yazıyı yazabilirsiniz. Örneğin: Siteme hoş geldiniz!</p>
+    <button id="kapat-butonu">Anladım</button>
+</div>
 
     <header>
         <h1>Gizli Bilgiler</h1>
@@ -80,10 +121,38 @@
         <h2>Ana Sayfa</h2>
         <p>Burası ana içerik bölümüdür. Yukarıdaki menüden istediğiniz sayfaya gidebilirsiniz.</p>
     </main>
+<script>
+    // Tarayıcı penceresi tamamen yüklendiğinde bu fonksiyonu çalıştır
+    window.addEventListener('load', function() {
+        
+        var kutu = document.getElementById('bildirim-kutusu');
+        var buton = document.getElementById('kapat-butonu');
 
+        // 1. KONTROL ET:
+        // Kullanıcı daha önce 'bildirimGordu' diye bir şeyi 'evet' olarak kaydetmiş mi?
+        if (localStorage.getItem('bildirimGordu') !== 'evet') {
+            // Kaydetmemişse, kutuyu göster
+            kutu.style.display = 'block';
+        }
+
+        // 2. BUTONA TIKLANDIĞINDA:
+        buton.addEventListener('click', function() {
+            // Kutuyu gizle
+            kutu.style.display = 'none';
+            
+            // 3. HAFIZAYA KAYDET:
+            // 'bildirimGordu' değerini 'evet' yap.
+            // Kullanıcı bir daha bu siteye girdiğinde 1. adımdaki kontrol 'evet'i görecek
+            // ve kutuyu göstermeyecek.
+            localStorage.setItem('bildirimGordu', 'evet');
+        });
+
+    });
+</script>
 </body>
 
 </html>
+
 
 
 
